@@ -5,13 +5,13 @@ github_username: iwu78
 github_repo: "ian_2025" 
 baseurl: "/ian_2025"
 future: true
-remote_theme: jekyll/minima
-minima:
-  skin: dark
-  social_links:
-    - { platform: github, user_url: "https://github.com/nighthawkcoders"}
-    - { platform: x, user_url: "https://x.com/NighthawkCoding/" }
-    - { platform: youtube, user_url: "https://www.youtube.com/@nighthawkcodingsociety2868" } 
+remote_theme: fongandrew/hydeout
+# minima:
+#  skin: dark
+#  social_links:
+#    - { platform: github, user_url: "https://github.com/nighthawkcoders"}
+#    - { platform: x, user_url: "https://x.com/NighthawkCoding/" }
+#    - { platform: youtube, user_url: "https://www.youtube.com/@nighthawkcodingsociety2868" } 
 # remote_theme: pages-themes/midnight@v0.2.0
 # remote_theme: pages-themes/cayman@v0.2.0
 # remote_theme: pages-themes/dinky@v0.2.0
@@ -24,3 +24,4 @@ header_pages:
   - navigation/search.md
   - navigation/about.md
   - README4YML.md
+  - navigation/timebox.md
