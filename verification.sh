@@ -45,7 +45,7 @@ createEnvVariables () {
     export project=\$project_dir/ian_2025  # change portfolio_2025 to name of project from git clone
     export posts=\$project/_posts
     export notebooks=\$project/_notebooks
-    export project_repo="https://github.com/nighthawkcoders/srijan_2025.git"
+    export project_repo="https://github.com/nighthawkcoders/ian_2025.git"
     
     printCommand "echo \"Repos home dir: $project_dir\""
     printCommand "echo \"Project dir: $project\""
