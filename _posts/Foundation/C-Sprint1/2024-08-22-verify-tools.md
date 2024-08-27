@@ -48,8 +48,8 @@ iwu88@LG17:~/vscode/ian_2025$ echo "Notebooks dir: $project/_notebooks"
 "Notebooks dir: $project/_notebooks"
 ```
 ```console
-iwu88@LG17:~/vscode/ian_2025$ echo "Repo: https://github.com/nighthawkcoders/srijan_2025.git"
-"Repo: https://github.com/nighthawkcoders/srijan_2025.git"
+iwu88@LG17:~/vscode/ian_2025$ echo "Repo: https://github.com/nighthawkcoders/ian_2025.git"
+"Repo: https://github.com/nighthawkcoders/ian_2025.git"
 ```
 Verifying configuration of GitHub 
 ```console
