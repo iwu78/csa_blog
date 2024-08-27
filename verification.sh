@@ -13,9 +13,9 @@ layout: post
 title: Sprint 1 - Verify Tools
 description: Verifying Tools and Software for Sprint 1
 type: collab
-courses: {'csa': {'week': 3}}
+categories:
+  - Sprint 1
 comments: True
-categories: ['Collaboration']
 ---
 " >> $file_name
 

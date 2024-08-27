@@ -1,144 +1,152 @@
----
-layout: base
----
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en-us'}}">
 
-{%comment%} 
-Setup course data
-{%endcomment%}
+  {% include head.html %}
 
-{% assign course = site.data[page.course] %} <!-- Load YML data -->
-{% assign units = page.units | split: ',' %}
-<h1>{{page.title}}</h1>
-<br>
+  <body class="{{ page.layout }}{% if page.url == '/' %} home{% endif %}">
 
-{%comment%} 
-Load all posts
-{%endcomment%}
+    {% include sidebar.html %}
 
-{% assign posts = null | compact %}
-{% assign posts = posts | concat:site.posts | concat:site.pages %}
+    <main class="container">
 
-{%comment%} 
-<!-- Iterate through Course Units -->
-{%endcomment%}
+      {% assign course = site.data[page.course] %} <!-- Load YML data -->
+      {% assign units = page.units | split: ',' %}
+      <h1>{{page.title}}</h1>
+      <br>
 
-{% for unit in units %}
-{% assign unitKey = "Sprint" | append: unit %}
-{% assign unitData = course[unitKey] %}
-<h2>
-  {{ unitKey }}: {{ unitData.title }}
-</h2>
-<p>  {{ unitData.description }} </p>
+      {%comment%} 
+      Load all posts
+      {%endcomment%}
 
-{% if unitData.illustration %}
-<details>
-  <summary>Illustration</summary>
+      {% assign posts = null | compact %}
+      {% assign posts = posts | concat:site.posts | concat:site.pages %}
 
-  <pre>
-    <p>{{ unitData.illustration }}</p>
-  </pre>
-</details>
-<br/>
-{% endif %}
+      {%comment%} 
+      <!-- Iterate through Course Units -->
+      {%endcomment%}
 
-{% assign start = unitData.start %}
-{% assign end = unitData.end %}
+      {% for unit in units %}
+      {% assign unitKey = "Sprint" | append: unit %}
+      {% assign unitData = course[unitKey] %}
+      <h2>
+        {{ unitKey }}: {{ unitData.title }}
+      </h2>
+      <p>  {{ unitData.description }} </p>
 
-{%comment%} 
-<!-- Column Headings for Blogs -->
-{%endcomment%}
+      {% if unitData.illustration %}
+      <details>
+        <summary>Illustration</summary>
 
-<table>
-  <tr>
-    <th>Week</th>
-    <th>Code, Code, Code</th>
-    <th>Tools and DevOps</th>
-    <th>Collaboration</th>
-  </tr>
-
-  {%comment%} 
-  <!-- These loops group blogs according to Row (week) and Column (category) 
-    units = empty array
-    sym = value to be used as a separator
-    deli = sym forced to array
-  -->
-  {%endcomment%}
-
-  {% assign units = null | compact %}  
-  {% assign sym = "|||" %} 
-  {% assign deli = sym | compact %} 
-
-  {% for index in (start..end) -%}
-    {% assign ccc = null | compact %}
-    {% assign devops = null | compact %}
-    {% assign collab = null | compact %}
-    {% assign uk = null | compact %}
-
-  {%comment%} 
-  <!-- looping through all posts -->
-  {%endcomment%}
-
-    {% for post in posts %}
-      {% if post.courses[page.course] %}
-  {%comment%} 
-  <!-- prepare data blog post data for evaluation -->
-  {%endcomment%}
-        {% assign week = post.courses[page.course].week | plus: 0 %}
-        {% assign title = post.title | compact %}
-        {% assign url = post.url | compact %}
-
-  {%comment%} 
-  <!-- process posts for current week -->
-  {%endcomment%}
-        {% if week == index %} 
-
-  {%comment%} 
-  <!-- organizing blogs by type -->
-  {%endcomment%}
-          {% if post.type == "ccc" %}
-              {% assign ccc = ccc | unshift: title %}
-              {% assign ccc = ccc | unshift: url %}  
-          {% elsif post.type == "devops" %}
-              {% assign devops = devops | unshift: title %}
-              {% assign devops = devops | unshift: url %} 
-          {% elsif post.type == "collab" %}
-              {% assign collab = collab | unshift: title %}
-              {% assign collab = collab | unshift: url %} 
-          {% else %}
-              {% assign uk = uk | unshift: title %}
-              {% assign uk = uk | unshift: url %}     
-          {% endif %}
-
-        {% endif %}
+        <pre>
+          <p>{{ unitData.illustration }}</p>
+        </pre>
+      </details>
+      <br/>
       {% endif %}
-    {% endfor %}
 
-  {%comment%} 
-  <!-- ordering units and inserting column delimiters -->
-  {%endcomment%}
-  {% assign units = units | concat:ccc | concat:deli | concat:devops | concat:deli | concat:collab %}
+      {% assign start = unitData.start %}
+      {% assign end = unitData.end %}
 
-  {%comment%} 
-  <!-- Forever Loop with base condition break processes units and build html for each type-->
-  {%endcomment%}
-  <tr>
-  <td> {{ index }} </td> 
-  <td>
-  {% for i in (0..100) -%} 
-    {% if units.size == 0 %}
-      {% break %}
-    {% elsif units[0] == sym %} <!-- make new column -->
-  </td>
-  <td>
-      {% assign units = units | shift %} <!-- remove delimiter -->
-    {% else %} <!-- make a link in the column -->
-      - <a href="{{site.baseurl}}/{{units[0]}}">{{units[1]}}</a> <br/> 
-      {% assign units = units | shift | shift %} <!-- remove title and url -->
-    {% endif %}
-  {% endfor %}
-  </td>
-  </tr>
-  {% endfor %}
+      {%comment%} 
+      <!-- Column Headings for Blogs -->
+      {%endcomment%}
 
-</table>
-{% endfor %}
+      <table>
+        <tr>
+          <th>Week</th>
+          <th>Code, Code, Code</th>
+          <th>Tools and DevOps</th>
+          <th>Collaboration</th>
+        </tr>
+
+        {%comment%} 
+        <!-- These loops group blogs according to Row (week) and Column (category) 
+          units = empty array
+          sym = value to be used as a separator
+          deli = sym forced to array
+        -->
+        {%endcomment%}
+
+        {% assign units = null | compact %}  
+        {% assign sym = "|||" %} 
+        {% assign deli = sym | compact %} 
+
+        {% for index in (start..end) -%}
+          {% assign ccc = null | compact %}
+          {% assign devops = null | compact %}
+          {% assign collab = null | compact %}
+          {% assign uk = null | compact %}
+
+        {%comment%} 
+        <!-- looping through all posts -->
+        {%endcomment%}
+
+          {% for post in posts %}
+            {% if post.courses[page.course] %}
+        {%comment%} 
+        <!-- prepare data blog post data for evaluation -->
+        {%endcomment%}
+              {% assign week = post.courses[page.course].week | plus: 0 %}
+              {% assign title = post.title | compact %}
+              {% assign url = post.url | compact %}
+
+        {%comment%} 
+        <!-- process posts for current week -->
+        {%endcomment%}
+              {% if week == index %} 
+
+        {%comment%} 
+        <!-- organizing blogs by type -->
+        {%endcomment%}
+                {% if post.type == "ccc" %}
+                    {% assign ccc = ccc | unshift: title %}
+                    {% assign ccc = ccc | unshift: url %}  
+                {% elsif post.type == "devops" %}
+                    {% assign devops = devops | unshift: title %}
+                    {% assign devops = devops | unshift: url %} 
+                {% elsif post.type == "collab" %}
+                    {% assign collab = collab | unshift: title %}
+                    {% assign collab = collab | unshift: url %} 
+                {% else %}
+                    {% assign uk = uk | unshift: title %}
+                    {% assign uk = uk | unshift: url %}     
+                {% endif %}
+
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+        {%comment%} 
+        <!-- ordering units and inserting column delimiters -->
+        {%endcomment%}
+        {% assign units = units | concat:ccc | concat:deli | concat:devops | concat:deli | concat:collab %}
+
+        {%comment%} 
+        <!-- Forever Loop with base condition break processes units and build html for each type-->
+        {%endcomment%}
+        <tr>
+        <td> {{ index }} </td> 
+        <td>
+        {% for i in (0..100) -%} 
+          {% if units.size == 0 %}
+            {% break %}
+          {% elsif units[0] == sym %} <!-- make new column -->
+        </td>
+        <td>
+            {% assign units = units | shift %} <!-- remove delimiter -->
+          {% else %} <!-- make a link in the column -->
+            - <a href="{{site.baseurl}}/{{units[0]}}">{{units[1]}}</a> <br/> 
+            {% assign units = units | shift | shift %} <!-- remove title and url -->
+          {% endif %}
+        {% endfor %}
+        </td>
+        </tr>
+        {% endfor %}
+
+      </table>
+      {% endfor %}
+    </main>
+
+    {% include custom-foot.html %}
+  </body>
+</html>
