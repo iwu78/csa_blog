@@ -20,7 +20,7 @@ comments: True
 " >> $file_name
 
 printCommand () {
-    echo "\`\`\`bash"
+    echo "\`\`\`console"
     echo "iwu88@LG17:~/vscode/ian_2025$ $1"
     echo "$($1)"
     echo "\`\`\`"
