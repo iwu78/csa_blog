@@ -81,7 +81,7 @@ function getColor(county) {
             return color;
         }
     }
-    return '#ffffff'; // Default color if not found
+    return '#ffffff';
 }
 
 function highlightFeature(e) {
@@ -92,22 +92,19 @@ function highlightFeature(e) {
 }
 
 function resetHighlight(e) {
-    info.update(); // Clear the info control on mouseout
+    info.update();
 }
 
 
 function onEachFeature(feature, layer) {
-    // Bind events for hover effects
     layer.on({
         mouseover: highlightFeature,
         mouseout: resetHighlight,
     });
 
-    // Ensure the properties are correctly accessed
     const countyName = feature.properties.NAME;
     const stateAbbrev = stateId[feature.properties.STATEFP];
 
-    // Bind the tooltip to the layer with the correct format
     if (countyName && stateAbbrev) {
         layer.bindTooltip(`${countyName}, ${stateAbbrev}`, {
             permanent: false,
@@ -116,7 +113,6 @@ function onEachFeature(feature, layer) {
         });
     }
 
-    // Assign visits to the properties for display purposes
     for (let color in visitData) {
         const countyKey = `${normalizeCountyName(countyName)}__${stateAbbrev}`;
         if (visitData[color].paths.includes(countyKey)) {
@@ -140,5 +136,4 @@ const geojson = L.geoJson(usCountiesData, {
     onEachFeature: onEachFeature
 }).addTo(map);
 
-// Fit bounds to include Alaska and Hawaii
 map.fitBounds(geojson.getBounds());

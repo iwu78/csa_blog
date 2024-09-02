@@ -28,3 +28,7 @@ Version Control
     - Yes, it is hosted on github pages, domain is github.io with subdomain of my username.
   - Is the URL for your GitHub Pages different from your neighbors’ URLs? Did you change the URL? If so, when?
     - Yes, the subdomain was defined by my github username when I signed up, and on GitHub pages when I set the folder for the website.
+
+## GitHub Lens, Analytics
+![alt text](../../../../images/image.png)
+![alt text](../../../../images/image-1.png)
