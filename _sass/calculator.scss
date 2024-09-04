@@ -1,0 +1,114 @@
+button1 {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    background-color: #21807c;
+    border: 3px solid black;
+    font-size: 1.5em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    grid-column: span 1;
+    grid-row: span 1;
+
+    transition: all 0.5s; 
+  }
+
+
+  /* darkens the background color on hover to create a selecting effect */
+  button1:hover {
+    background-color: #00404D;
+  }
+
+  /* define class for redifined button */
+  .button {
+    @include button;
+    @include button:hover;
+  }
+
+  /* "row style" is flexible size and aligns pictures in center */
+  .row {
+    align-items: center;
+    display: flex;
+  }
+
+  /* "column style" is one-third of the width with padding */
+  .column {
+    flex: 16.66%;
+    padding: 3px;
+  }
+  
+  /* class to create the calculator's container; uses CSS grid dsiplay to partition off buttons */
+  .calculator-container { 
+    width: 180vw; /* this width and height is specified for mobile devices by default */
+    height: 160vh;
+    margin: 0 auto;
+  
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* fr is a special unit; learn more here: https://css-tricks.com/introduction-fr-css-unit/  */
+    grid-template-rows: 0.5fr repeat(4, 1fr);
+    gap: 15px 15px;
+  }
+  
+  @media (min-width: 600px) { 
+    .calculator-container {
+        width: 40vw;
+        height: 90vh;
+    }
+  }
+
+  /* styling for the calculator number button */
+  .calculator-number {
+    @extend .button;
+  }
+
+  /* styling for the calculator operation button */
+  .calculator-operation {
+    @extend .button;
+  }
+  
+  /* styling for the calculator clear button */
+  .calculator-clear {
+    @extend .button;
+    background-color: #e68b1c;
+  }
+  .calculator-clear:hover {
+    @extend .button:hover;
+    background-color: #662200;
+  }
+  
+  /* styling for the calculator equals button */
+  .calculator-equals {
+    @extend .button;
+    background-color: #e70f0f;
+  }
+  .calculator-equals:hover {
+    @extend .button:hover;
+    background-color: #800015;
+  }
+
+  /* define class for redifined button */
+  
+  .calculator-output {
+    /* calulator output 
+      top bar shows the results of the calculator;
+      result to take up the entirety of the first row;
+      span defines 4 columns and 1 row
+    */
+    grid-column: span 4;
+    grid-row: span 1;
+  
+    border-radius: 10px;
+    padding: 0.25em;
+    font-size: 40px;
+    border: 5px solid black;
+
+    float: right;
+    width: 670px;
+    direction: rtl;
+  
+    display: flex;
+    align-items: right;
+  }

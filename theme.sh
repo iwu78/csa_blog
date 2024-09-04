@@ -4,16 +4,18 @@
 CONFIG_FILE="_config.yml"
 
 # Themes
-HYDEOUT_THEME="remote_theme: fongandrew/hydeout"
-MINIMA_THEME="remote_theme: pages-themes/minima@v0.2.0"
+THEME1="remote_theme: fongandrew/hydeout"
+THEME2="remote_theme: jekyll/minima"
 
 # Function to swap the theme in _config.yml
 swap_theme() {
-    if grep -q "$HYDEOUT_THEME" "$CONFIG_FILE"; then
-        sed -i "s|$HYDEOUT_THEME|$MINIMA_THEME|" "$CONFIG_FILE"
+    if grep -q "$THEME1" "$CONFIG_FILE"; then
+        sed -i "s|$THEME1|$THEME2|" "$CONFIG_FILE"
+        sed -i '2s/index/page/' index.html
         echo "Swapped to Minima theme."
-    elif grep -q "$MINIMA_THEME" "$CONFIG_FILE"; then
-        sed -i "s|$MINIMA_THEME|$HYDEOUT_THEME|" "$CONFIG_FILE"
+    elif grep -q "$THEME2" "$CONFIG_FILE"; then
+        sed -i "s|$THEME2|$THEME2|" "$CONFIG_FILE"
+        sed -i '2s/page/index/' index.html
         echo "Swapped to Hydeout theme."
     else
         echo "No recognized theme found in _config.yml."
@@ -45,3 +47,5 @@ swap_directories "_includes" "_includes_bak"
 
 # Swap the contents of _layouts and _layouts_bak
 swap_directories "_layouts" "_layouts_bak"
+
+make
