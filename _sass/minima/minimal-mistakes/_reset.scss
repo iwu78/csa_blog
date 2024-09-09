@@ -61,7 +61,6 @@ section {
 /* Display block in IE6-9 and FF3 */
 
 audio,
-canvas,
 video {
   display: inline-block;
   *display: inline;
@@ -120,13 +119,6 @@ img {
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
-}
-
-/* Prevent max-width from affecting Google Maps */
-
-#map_canvas img,
-.google-maps img {
-  max-width: none;
 }
 
 /* Consistent form font size in all browsers, margin changes, misc */

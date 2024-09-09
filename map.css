@@ -1,0 +1,11 @@
+
+*, *:focus, *:hover {
+    outline: none;
+}
+#map { 
+    height: 85vh;
+    width: 100%;
+    border-radius: 10px; 
+    border: 2px solid black;
+    background: #013f3f;
+}

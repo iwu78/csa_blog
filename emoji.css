@@ -1,0 +1,12 @@
+canvas {
+    border: 1px solid black;
+}
+#doneButton {
+    margin-top: 10px;
+}
+#controls {
+    margin-bottom: 10px;
+}
+#result {
+    margin-top: 20px;
+}
