@@ -14,7 +14,7 @@ canvas {
 	 box-sizing: border-box;
 	 margin: 0;
 	 padding: 0;
-	 font-family: 'Verdana', cursive, sans-serif;
+	 font-family: 'Comic Sans MS', cursive, sans-serif;
 }
  body {
 	 background-color: #ffedcc;
@@ -126,9 +126,6 @@ canvas {
 	 transform: scale(1.1);
 }
  #result {
-     display: flex;
-     justify-content: center; /* Center horizontally */
-     gap: 10px; /* Add some space between images */
 	 margin-top: 20px;
 	 text-align: center;
 	 font-size: 1.4em;
@@ -145,7 +142,6 @@ canvas {
 		 color: #ffe4e1;
 	}
 }
-
  img {
 	 margin-top: 20px;
 	 max-width: 100px;
@@ -156,34 +152,4 @@ canvas {
  img:hover {
 	 transform: rotate(10deg) scale(1.1);
 }
-
-#container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    text-align: center;
-}
-#doneButton {
-    margin-top: 10px;
-}
-#controls {
-    margin-bottom: 10px;
-}
-#progressContainer {
-    width: 100%;
-    background-color: #f3f3f3;
-    border-radius: 25px;
-    margin-top: 20px;
-    height: 20px;
-    width: 200px;
-    border: 1px solid #ff6347;
-}
-#progressBar {
-    height: 100%;
-    background-color: #4caf50;
-    border-radius: 25px;
-    width: 0;
-    transition: width 0.4s;
-}
+ 
