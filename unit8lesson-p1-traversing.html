@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      Unit 8 - 2D Arrays Traversing &middot; CSA_Blog
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/ian_2025/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ian_2025/favicon.png" />
+<link rel="shortcut icon" href="/ian_2025/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/ian_2025/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/ian_2025/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        CSA_Blog
+      </a>
+    </div>
+    <p class="lead">CSA_Blog</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/ian_2025/about.html">About</a>
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/ian_2025/">Home</a>
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  
+
+
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/ian_2025/sprint1/">Sprint 1</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/ian_2025/sprint2/">Sprint 2</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/ian_2025/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Unit 8 - 2D Arrays Traversing</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">12 Sep 2024</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        AP CSA
+      
+    
+  </span>
+</div>
+
+
+  <div class="post-body">
+    <h2 id="traversing-2d-arrays">Traversing 2D Arrays</h2>
+<ul>
+  <li>When traversing through, or looping through 1D arrays, we only need to use one loop to access every element in the array.</li>
+  <li>This is different in 2D arrays, where we need to use a loop inside of a loop, otherwise known as a <strong>for loop</strong></li>
+  <li>Java for loop structure review:
+```java
+for(first execution; condition; executed after every loop) {
+  //Action
+}</li>
+</ul>
+
+<p>ex.
+for(i = 0; i &lt; 5; i++) {
+    System.out.println(i);
+}</p>
+
+<p>Prints out
+0
+1
+2
+3
+4</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Remember base 0)
+
+
+- How can we use these to traverse through 1D arrays?
+
+
+Lets say we have an array, Array1...
+
+
+```java
+// Set variable i to 0, while i is less than the length of Array1, print the value of Array1[i], add 1 to i
+int[] Array1 = {1, 2, 3};
+for(int i = 0; i &lt; Array1.length; i++){
+    System.out.println(myArray[i]);
+}
+</code></pre></div></div>
+
+<ul>
+  <li>What about 2D arrays?
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create an array of integers with 2 rows, 3 columns</span>
+<span class="kt">int</span><span class="o">[][]</span> <span class="nc">Array1</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">},</span>
+  <span class="o">{</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">}</span>
+<span class="o">};</span>
+<span class="c1">// Set variable i to 0, while i is less than the length of Array1, proceed to the next for loop, add 1 to i</span>
+<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nc">Array1</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+<span class="c1">// Set variable i1 to 0, while i is less than the length of the array within Array1 at Array1[i], print the value of Array1[i][i1], add 1 to i1</span>
+  <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i1</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i1</span> <span class="o">&lt;</span> <span class="nc">Array1</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">length</span><span class="o">;</span> <span class="n">i1</span><span class="o">++){</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Array1</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">i1</span><span class="o">]);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="put-in-simpler-terms">Put in simpler terms?</h3>
+
+<p>For every row, loop through the row x number of times, x being the length of the array, print each individual value.
+So this code, without the loops, would be:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Array1</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">])</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Array1</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">1</span><span class="o">])</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Array1</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">2</span><span class="o">])</span>
+<span class="c1">// Keeping in mind base 0 system, and that Array1 has 3 columns for each row</span>
+<span class="c1">// Move on to the next row</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Array1</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">])</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Array1</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">])</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">Array1</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">2</span><span class="o">])</span>
+<span class="c1">// Again, keeping in mind that Array1 has 2 rows, and base 0 system, so "1st row" is actually 2nd put in plain english</span>
+</code></pre></div></div>
+
+<h2 id="lets-try">Lets try!</h2>
+
+<pre><code class="language-Java">public class Main {
+    public static void main(String[] args) {
+        int[][] Array1 = {
+            {1,2,3},
+            {4,5,6}
+        };
+        // Set variable i to 0, while i is less than the length of Array1, proceed to the next for loop, add 1 to i
+        for(int i = 0; i &lt; Array1.length; i++){
+        System.out.println("Row " + (i+1) + ", or " + i);
+        // Set variable i1 to 0, while i is less than the length of the array within Array1 at Array1[i], print the value of Array1[i][i1], add 1 to i1
+            for(int i1 = 0; i1 &lt; Array1[i].length; i1++){
+                System.out.println(Array1[i][i1]);
+            }
+        }
+    }
+}
+
+
+Main.main(null)
+
+</code></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Row 1, or 0
+1
+2
+3
+Row 2, or 1
+4
+5
+6
+</code></pre></div></div>
+
+<h2 id="popcorn-hack">Popcorn Hack</h2>
+
+<p>Let’s say you have an array Numbers[][] defined as:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nc">Numbers</span><span class="o">[][]</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">},</span>
+    <span class="o">{</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">},</span>
+    <span class="o">{</span><span class="mi">7</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">9</span><span class="o">},</span>
+<span class="o">};</span>
+</code></pre></div></div>
+<p>Loop through it until you reached a certain number of your choice, then print the value and position</p>
+
+<pre><code class="language-Java">int[][] numbers = {
+    {1,2,3},
+    {4,5,6},
+    {7,8,9}
+};
+    
+for (int[] list : numbers) {
+    for (int number : list) {
+        if ((number ^ 5) == 0) {
+            System.out.println(number);
+        }
+    }
+}
+
+</code></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5
+</code></pre></div></div>
+
+<p>Example output:
+9 is at row 3 column 3</p>
+
+<h1 id="what-if-you-want-to-go-column-first">What if you want to go column-first?</h1>
+
+<h2 id="introducing-column-major-order-as-an-alternative-to-row-major-order">Introducing: Column Major Order, as an alternative to Row Major Order</h2>
+
+<p>Put simply, all you have to do is reverse the order of the loops, and keep the insides intact, and use the length of a row for the number of times to loop instead of the length of a column.</p>
+
+<p>Why/how does this work?</p>
+
+<p>Now instead of looping once for every row by taking the number of elements in the array, which defines how many rows there, we instead loop once for every element in each element in the array, (ex. an array with an element {1, 2, 3} would loop 3 times) which defines how many columns there are. Then, we print out the value from the chosen column, represented by i1, and then increment the row value, i, to finish out the rest of the column. Then, i1, the column value, is incremented, and the value repeats. We reverse the order of the loops so that the <strong>column</strong> is <strong>prioritized</strong>, and make the changes accordingly.</p>
+
+<pre><code class="language-Java">public class Main {
+    public static void main(String[] args) {
+        int[][] Array1 = {
+            {1,2,3},
+            {4,5,6}
+        };
+        // Set variable i to 0, while i is less than the length of Array1, proceed to the next for loop, add 1 to i
+        for(int i1 = 0; i1 &lt; Array1[0].length; i1++){
+            System.out.println("Column " + (i1+1));
+            for(int i = 0; i &lt; Array1.length; i++){
+                System.out.println(Array1[i][i1]);
+            }
+        }
+    }
+}
+
+
+Main.main(null)
+</code></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Column 1
+1
+4
+Column 2
+2
+5
+Column 3
+3
+6
+</code></pre></div></div>
+
+
+    
+
+
+
+<div class="post-tags">
+  
+</div>
+  </div>
+
+  <script src="https://utteranc.es/client.js"
+        repo="iwu78/ian_2025"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/ian_2025/csa/unit3-p1/unit3-8hw">
+            Unit 3 Boolean - Homework
+            <small>16 Sep 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ian_2025/csa/unit3-p1/unit3-7">
+            Unit 3 Team Teach - 3.7 Comparing Objects
+            <small>15 Sep 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ian_2025/csa/unit3-p1/unit3-6">
+            Unit 3 Team Teach - 3.6 Equivalent Booleans
+            <small>15 Sep 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      Unit 8 - 2D Arrays Declaring and Initializing &middot; CSA_Blog
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/ian_2025/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ian_2025/favicon.png" />
+<link rel="shortcut icon" href="/ian_2025/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/ian_2025/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/ian_2025/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        CSA_Blog
+      </a>
+    </div>
+    <p class="lead">CSA_Blog</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/ian_2025/about.html">About</a>
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/ian_2025/">Home</a>
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  
+
+
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/ian_2025/sprint1/">Sprint 1</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/ian_2025/sprint2/">Sprint 2</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/ian_2025/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Unit 8 - 2D Arrays Declaring and Initializing</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">12 Sep 2024</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        AP CSA
+      
+    
+  </span>
+</div>
+
+
+  <div class="post-body">
+    <h2 id="how-to-declareinitialize-2d-arrays">How to declare/initialize 2D arrays</h2>
+
+<p>2) Empty array and manual input with indexes</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Declare a 3x3 empty 2D array
+int[][] matrix = new int[3][3];
+
+// Assign values to the 2D array using indexes
+matrix[0][0] = 1;
+matrix[0][1] = 2;
+matrix[0][2] = 3;
+matrix[1][0] = 4;
+matrix[1][1] = 5;
+matrix[1][2] = 6;
+matrix[2][0] = 7;
+matrix[2][1] = 8;
+matrix[2][2] = 9;
+</code></pre></div></div>
+
+<p>3) Nested For-Loop</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int value = 1; // Start value
+for (int i = 0; i &lt; matrix.length; i++) {  // Outer loop for rows
+    for (int j = 0; j &lt; matrix[i].length; j++) {  // Inner loop for columns
+        matrix[i][j] = value++; // Assign value and increment
+    }
+}
+</code></pre></div></div>
+
+<h3 id="popcorn-hack-1-part-1">Popcorn Hack 1 (Part 1):</h3>
+<ul>
+  <li><strong>Intialize a 2D array of the people in your group grouped based on pairs with 3 different methods</strong></li>
+  <li>ex Array: [[Anusha, Vibha],[Avanthika, Matthew]]</li>
+</ul>
+
+<pre><code class="language-Java">String[][] bob = new String[2][2];
+
+bob[0][0] = "Ian";
+bob[0][1] = "Srijan";
+bob[1][0] = "Tarun";
+bob[1][1] = "Jonathan";
+</code></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Jonathan
+</code></pre></div></div>
+
+
+    
+
+
+
+<div class="post-tags">
+  
+</div>
+  </div>
+
+  <script src="https://utteranc.es/client.js"
+        repo="iwu78/ian_2025"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/ian_2025/csa/unit3-p1/unit3-8hw">
+            Unit 3 Boolean - Homework
+            <small>16 Sep 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ian_2025/csa/unit3-p1/unit3-7">
+            Unit 3 Team Teach - 3.7 Comparing Objects
+            <small>15 Sep 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ian_2025/csa/unit3-p1/unit3-6">
+            Unit 3 Team Teach - 3.6 Equivalent Booleans
+            <small>15 Sep 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

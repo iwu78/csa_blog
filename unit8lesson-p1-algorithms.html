@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      Unit 8 - 2D Arrays Algorithms & Hacks &middot; CSA_Blog
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/ian_2025/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ian_2025/favicon.png" />
+<link rel="shortcut icon" href="/ian_2025/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/ian_2025/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/ian_2025/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        CSA_Blog
+      </a>
+    </div>
+    <p class="lead">CSA_Blog</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/ian_2025/about.html">About</a>
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/ian_2025/">Home</a>
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  
+
+
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/ian_2025/sprint1/">Sprint 1</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/ian_2025/sprint2/">Sprint 2</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/ian_2025/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Unit 8 - 2D Arrays Algorithms & Hacks</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">12 Sep 2024</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        AP CSA
+      
+    
+  </span>
+</div>
+
+
+  <div class="post-body">
+    <h1 id="algorithms-2d-array-java">Algorithms 2D Array Java</h1>
+
+<p>Linear search is a simple and sequential searching algorithm. It is used to find whether a particular element is present in the array or not by traversing every element in the array. While searching in the 2D array is exactly the same but here all the cells need to be traversed In this way, any element is searched in a 2D array.</p>
+
+<p>Below is the implementation for linear search in 2D arrays</p>
+
+<pre><code class="language-Java">// Linear Search in 2D arrays
+import java.util.Arrays;
+ 
+public class GFG {
+    public static void main(String[] args)
+    {
+        int arr[][] = { { 3, 12, 9 },
+                        { 5, 2, 89 },
+                        { 90, 45, 22 } };
+        int target = 89;
+        int ans[] = linearSearch(arr, target);
+        System.out.println("Element found at index: "
+                           + Arrays.toString(ans));
+    }
+ 
+    static int[] linearSearch(int[][] arr, int target)
+    {
+        for (int i = 0; i &lt; arr.length; i++) {
+            for (int j = 0; j &lt; arr[i].length; j++) {
+                if (arr[i][j] == target) {
+                    return new int[] { i, j };
+                }
+            }
+        }
+        return new int[] { -1, -1 };
+    }
+}
+GFG.main(null);
+</code></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Element found at index: [1, 2]
+</code></pre></div></div>
+
+<p>Summary:
+Linear Search involves iterating through all elements in the matrix.
+Binary Search is applicable when the matrix is sorted.
+Binary Search treats the 2D matrix as a 1D array by converting the indices.
+These searching algorithms are fundamental and widely used. Practice applying them to different scenarios to solidify your understanding. Additionally, consider exploring more advanced searching techniques for 2D arrays as you become more proficient.</p>
+
+<pre><code class="language-Java">public class Main {
+    public static int[] binarySearch(int[][] matrix, int target) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int left = 0;
+        int right = rows * cols - 1;
+
+        while (left &lt;= right) {
+            int mid = left + (right - left) / 2;
+            int midValue = matrix[mid / cols][mid % cols];
+
+            if (midValue == target) {
+                return new int[] {mid / cols, mid % cols};
+            }
+
+            if (midValue &lt; target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return new int[] {-1, -1}; // Target not found
+    }
+}
+</code></pre>
+
+<h3 id="binary-search-in-a-2d-array">Binary Search in a 2D Array:</h3>
+
+<p>Binary search is an efficient method of searching in an array. Binary search works on a sorted array. At each iteration the search space is divided in half, this is the reason why binary search is more efficient than linear search</p>
+
+<pre><code class="language-Java">// Binary Search on sorted 2D array
+import java.util.Arrays;
+ 
+class GFG {
+ 
+    static int[] findAns(int[][] arr, int target)
+    {
+        int row = 0;
+        int col = arr[row].length - 1;
+        while (row &lt; arr.length &amp;&amp; col &gt;= 0) {
+            if (arr[row][col] == target) {
+                return new int[] { row, col };
+            }
+ 
+            // Target lies in further row
+            if (arr[row][col] &lt; target) {
+                row++;
+            }
+            // Target lies in previous column
+            else {
+                col--;
+            }
+        }
+        return new int[] { -1, -1 };
+    }
+ 
+    // Driver Code
+    public static void main(String[] args)
+    {
+ 
+        // Binary search in sorted matrix
+        int arr[][] = { { 1, 2, 3, 4 },
+                        { 5, 6, 7, 8 },
+                        { 9, 10, 11, 12 } };
+        int[] ans = findAns(arr, 12);
+        System.out.println("Element found at index: "
+                           + Arrays.toString(ans));
+    }
+}
+GFG.main(null);
+</code></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Element found at index: [2, 3]
+</code></pre></div></div>
+
+<h2 id="popcorn-hack---extra">Popcorn Hack - EXTRA!</h2>
+<p>Create a program that implements binary search on 2D Arrays.</p>
+
+<pre><code class="language-Java">import java.util.Random;  
+import java.util.Arrays;  
+
+public class BinarySearch {
+    public static void main(String[] args) {
+        int[][] array = new int [5][5];
+        Random rand = new Random();
+
+        for (int i = 0; i &lt; array.length; i++) {
+            for (int j = 0; j &lt; array[i].length; j++) {
+                array[i][j] = rand.nextInt(20+1);
+                System.out.print(array[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        int target = rand.nextInt(20+1);
+        int[] answer = binarySearchAlgorithm(array, target);
+
+        if (Arrays.equals(answer, new int[] {-1, -1})) {
+            System.out.println("The number " + target + " was not found in the 2D Array");
+        } else {
+            System.out.println("The number " + target + " was found at index " + Arrays.toString(answer));
+        }
+    }
+    public static int[] binarySearchAlgorithm(int[][] arr, int target) {
+        int rows = arr.length;
+        int columns = arr[0].length;
+        int left = 0;
+        int right = rows * columns - 1;
+        if(rows == 0) {
+            return new int[] {-1, -1};
+        }
+
+        while(left &lt;= right) {
+            int mid = left + (right - left) / 2;
+            int midvalue = arr[mid / columns][mid % columns];
+
+            if (midvalue == target) {
+                return new int[] {mid / columns, mid % columns};
+            } else if (midvalue &lt; target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return new int[] {-1, -1};
+    }   
+}
+BinarySearch.main(null);
+</code></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>12 12 4 3 11 
+16 3 5 10 5 
+6 5 15 0 18 
+4 20 12 3 1 
+4 4 5 18 11 
+
+The number 4 was found at index [0, 2]
+</code></pre></div></div>
+
+<h2 id="mathematical-analysis-of-a-2d-array">Mathematical Analysis of a 2D Array</h2>
+
+<p>There are 3 types of standard algorithms that can be applied upon 2D arrays that are commonly tested by Collegeboard:</p>
+
+<ol>
+  <li>
+    <p><strong>Mathematical Analysis</strong>: Algorithms that involve performing mathematical operations or calculations on 2D arrays, such as finding sums, averages, or other statistical measures. Examples include calculating the sum of all elements in a matrix or finding the determinant of a matrix.</p>
+  </li>
+  <li>
+    <p><strong>Analyzing Element Properties</strong>: Algorithms that focus on examining and manipulating the properties of individual elements within a 2D array. This might involve checking for specific conditions, such as how many elements are prime, identifying the number of even/odd numbers, or surveying for any other properties.</p>
+  </li>
+  <li>
+    <p><strong>Reordering Elements</strong>: Algorithms that involve changing the order of elements within a 2D array based on certain criteria. This could include sorting rows or columns, rotating the matrix, or rearranging elements to achieve a desired configuration. Examples include sorting the rows of a matrix in ascending order or rotating the matrix 90 degrees clockwise.</p>
+  </li>
+</ol>
+
+<h1 id="mathematical-analysis">Mathematical Analysis</h1>
+
+<pre><code class="language-Java">/// Define the class named MatrixSum
+public class MatrixSum {
+    // Entry point of the program
+    public static void main(String[] args) {
+        // Initialize a 2D array (matrix) with predefined values
+        // The matrix here is a 3x3 array with integers from 1 to 9
+        int[][] matrix = {
+            {1, 2, 3},  // First row of the matrix
+            {4, 5, 6},  // Second row of the matrix
+            {7, 8, 9}   // Third row of the matrix
+        };
+        
+        // Call the calculateSum method with the matrix as an argument
+        // This method will return the sum of all elements in the matrix
+        int sum = calculateSum(matrix);
+        
+        // Print the sum of all elements in the matrix to the console
+        // The output will be: "Sum of all elements: 45"
+        System.out.println("Sum of all elements: " + sum);
+
+        // Call the test method to execute the tests
+        testMatrixSum();
+    }
+
+    // Method to calculate the sum of all elements in a 2D matrix
+    // This method takes a 2D integer array (matrix) as input and returns an integer (the sum)
+    public static int calculateSum(int[][] matrix) {
+        // Initialize a variable to hold the sum of the matrix elements
+        int sum = 0;
+        
+        // Iterate over each row in the matrix
+        // 'row' represents each 1D array (row) in the 2D array (matrix)
+        for (int[] row : matrix) {
+            // Iterate over each element in the current row
+            // 'element' represents each integer value in the row
+            for (int element : row) {
+                // Add the current element to the sum
+                sum += element;
+            }
+        }
+        
+        // Return the final sum after all elements have been added
+        return sum;
+    }
+
+    // Test method to execute the calculations and print results
+    public static void testMatrixSum() {
+        // Test 1: Matrix with all positive integers
+        int[][] matrix1 = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        System.out.println("Sum of all elements in matrix 1: " + calculateSum(matrix1));
+    }
+}
+MatrixSum.testMatrixSum();
+
+</code></pre>
+
+<h1 id="analysis-of-properties-of-a-2d-array">Analysis of Properties of a 2D array</h1>
+
+<pre><code class="language-Java">public class PrimeNumberCounter {
+
+    /**
+     * Checks if a number is prime.
+     * 
+     * @param num The number to check.
+     * @return true if the number is prime, false otherwise.
+     */
+    public static boolean isPrime(int num) {
+        // Numbers less than or equal to 1 are not prime numbers
+        if (num &lt;= 1) return false;
+        
+        // 2 and 3 are prime numbers
+        if (num &lt;= 3) return true;
+        
+        // Eliminate even numbers greater than 2 and multiples of 3
+        if (num % 2 == 0 || num % 3 == 0) return false;
+        
+        // Check for factors from 5 up to the square root of num
+        // Increment by 6 to check numbers of the form 6k ± 1
+        for (int i = 5; i * i &lt;= num; i += 6) {
+            // Check divisibility by i and i + 2
+            if (num % i == 0 || num % (i + 2) == 0) return false;
+        }
+        
+        // If no factors were found, num is prime
+        return true;
+    }
+
+    /**
+     * Counts the number of prime numbers in a 2D array.
+     * 
+     * @param array The 2D array of integers to check.
+     * @return The count of prime numbers in the array.
+     */
+    public static int countPrimes(int[][] array) {
+        int primeCount = 0; // Initialize count of prime numbers
+
+        // Iterate over each row in the 2D array
+        for (int[] row : array) {
+            // Iterate over each element in the row
+            for (int num : row) {
+                // Check if the current number is prime
+                if (isPrime(num)) {
+                    primeCount++; // Increment count if prime
+                }
+            }
+        }
+
+        // Return the total count of prime numbers
+        return primeCount;
+    }
+}
+
+// Test the PrimeNumberCounter class
+public class TestPrimeNumberCounter {
+    public static void main(String[] args) {
+        // Define a 2D array of integers for testing
+        int[][] testArray = {
+            {2, 4, 7, 8},
+            {11, 13, 17, 19},
+            {23, 24, 25, 29},
+            {31, 32, 37, 41}
+        };
+
+        // Count the number of prime numbers in the test array
+        int primeCount = PrimeNumberCounter.countPrimes(testArray);
+        // Print the result
+        System.out.println("Number of prime numbers: " + primeCount);
+    }
+}
+TestPrimeNumberCounter.main(null);
+
+</code></pre>
+
+<h1 id="reordering-elements">Reordering Elements</h1>
+
+<pre><code class="language-Java">public class MatrixRotation {
+    public static void main(String[] args) {
+        // Initialize a 3x3 matrix
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        
+        // Rotate the matrix 90 degrees clockwise
+        int[][] rotated = rotateMatrix90Degrees(matrix);
+        
+        // Print the rotated matrix
+        printMatrix(rotated);
+    }
+
+    /**
+     * Rotates the given square matrix 90 degrees clockwise.
+     * 
+     * @param matrix The matrix to be rotated
+     * @return The rotated matrix
+     */
+    public static int[][] rotateMatrix90Degrees(int[][] matrix) {
+        int n = matrix.length;  // Get the size of the matrix
+        int[][] rotated = new int[n][n];  // Initialize a new matrix for the rotated result
+        
+        // Perform the rotation
+        for (int i = 0; i &lt; n; i++) {
+            for (int j = 0; j &lt; n; j++) {
+                // Map the element from the original matrix to the rotated matrix
+                rotated[j][n - 1 - i] = matrix[i][j];
+            }
+        }
+        return rotated;  // Return the rotated matrix
+    }
+    
+    /**
+     * Prints the given matrix to the console.
+     * 
+     * @param matrix The matrix to be printed
+     */
+    public static void printMatrix(int[][] matrix) {
+        // Loop through each row of the matrix
+        for (int[] row : matrix) {
+            // Loop through each element in the row
+            for (int element : row) {
+                // Print the element followed by a space
+                System.out.print(element + " ");
+            }
+            // Print a newline after each row
+            System.out.println();
+        }
+    }
+}
+MatrixRotation.main(null);
+
+</code></pre>
+
+<h2 id="popcorn-hack">Popcorn Hack</h2>
+<p>Write a program in Java that allows you to find the number of elements in an array that are less than a certain input k.</p>
+
+<pre><code class="language-Java">public static int numLess(int[][] Array, int k) {
+    int count = 0;
+    for (int[] list : Array) {
+        for (int number : list) {
+            if (number &lt; k) {
+                count += 1;
+            }
+        }
+    }
+    return count;
+}
+
+int[][] array = {
+    {1, 2, 3},
+    {0, 0, 0},
+    {7, 8, 9}
+};
+int k = 5;
+System.out.println(numLess(Array, k))
+</code></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4
+</code></pre></div></div>
+
+<h2 id="alternate-resources">Alternate Resources</h2>
+
+<h5 id="past-csa-frqs-on-algorithms-applied-to-2d-arrays">Past CSA FRQs on Algorithms Applied to 2D Arrays</h5>
+
+<ol>
+  <li>
+    <p><strong><a href="https://secure-media.collegeboard.org/digitalServices/pdf/ap/ap14_frq_computer_science_a.pdf">2014 FRQ</a></strong> - Problem 3: This problem involves working with a 2D array containing names and the number of absences of students. The 2D array has to be traversed and searched for all elements that satisfy a certain property.</p>
+  </li>
+  <li>
+    <p><strong><a href="https://secure-media.collegeboard.org/digitalServices/pdf/ap/ap15_frq_computer_science_a.pdf">2015 FRQ</a></strong> - Problem 1: This problem requires basic summation of entries in the 2D array and proceeds to require a more mathematically advanced algorithm in part (c).</p>
+  </li>
+  <li>
+    <p><strong><a href="https://apcentral.collegeboard.org/media/pdf/ap-computer-science-a-frq-2017.pdf">2017 FRQ</a></strong> - Problem 4: This FRQ begins with a traversal of a 2D array to find the position of a certain integer and then proceeds to a problem of finding the number of possible subarrays within that grid.</p>
+  </li>
+</ol>
+
+<h1 id="homework-hack">Homework Hack</h1>
+
+<h2 id="cb-2021-frq-question-4a">CB 2021 FRQ Question 4a</h2>
+<p><a href="https://apcentral.collegeboard.org/media/pdf/ap21-frq-computer-science-a.pdf">Link</a></p>
+
+<p><img src="/ian_2025/images/u8-p1-assets/qp1.png" /></p>
+
+<p><img src="/ian_2025/images/u8-p1-assets/qp2.png" /></p>
+
+<pre><code class="language-Java">public static boolean isNonZeroRow(int[][] array2D, int r) {
+    int[] list = array2D[r];
+    for (int number : list) {
+        if (number != 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int[][] array = {
+    {1, 2, 3},
+    {0, 0, 0},
+    {7, 8, 9}
+};
+
+System.out.println(isNonZeroRow(array, 1));
+System.out.println(isNonZeroRow(array, 0));
+</code></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>true
+false
+</code></pre></div></div>
+
+
+    
+
+
+
+<div class="post-tags">
+  
+</div>
+  </div>
+
+  <script src="https://utteranc.es/client.js"
+        repo="iwu78/ian_2025"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/ian_2025/csa/unit3-p1/unit3-8hw">
+            Unit 3 Boolean - Homework
+            <small>16 Sep 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ian_2025/csa/unit3-p1/unit3-7">
+            Unit 3 Team Teach - 3.7 Comparing Objects
+            <small>15 Sep 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ian_2025/csa/unit3-p1/unit3-6">
+            Unit 3 Team Teach - 3.6 Equivalent Booleans
+            <small>15 Sep 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>
